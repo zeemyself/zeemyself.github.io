@@ -2,3 +2,5 @@
 node_modules/*
 **/node_modules/*
 **/.obsidian/
+source/public/
+source/quartz/.quartz-cache/
