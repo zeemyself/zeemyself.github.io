@@ -95,7 +95,9 @@
     "yargs": "^17.7.2"
   },
   "overrides": {
-    "minimatch": "^5.1.6"
+    "serve-handler": {
+      "minimatch": "3.1.5"
+    }
   },
   "devDependencies": {
     "@types/cli-spinner": "^0.2.3",
