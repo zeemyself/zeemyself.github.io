@@ -51,7 +51,7 @@
     "isomorphic-git": "^1.36.3",
     "lightningcss": "^1.31.1",
     "micromorph": "^0.4.5",
-    "minimatch": "^10.1.1",
+    "minimatch": "^10.2.3",
     "preact": "^10.28.2",
     "preact-render-to-string": "^6.6.5",
     "pretty-bytes": "^7.1.0",
@@ -68,7 +68,7 @@
     "vfile": "^6.0.3",
     "workerpool": "^10.0.1",
     "ws": "^8.19.0",
-    "yaml": "^2.8.2",
+    "yaml": "^2.8.3",
     "yargs": "^18.0.0"
   },
   "devDependencies": {
