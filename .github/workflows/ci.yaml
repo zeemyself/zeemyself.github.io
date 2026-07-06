@@ -19,7 +19,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
 
       - name: Cache dependencies
         uses: actions/cache@v4
@@ -29,11 +29,19 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
-      - run: npm install
+      - name: Cache Quartz plugins
+        uses: actions/cache@v4
+        with:
+          path: ./source/.quartz/plugins
+          key: ${{ runner.os }}-plugins-${{ hashFiles('**/quartz.lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-plugins-
+
+      - run: npm ci
         working-directory: ./source
 
-      - name: chmod
-        run: chmod +x ./quartz/bootstrap-cli.mjs
+      - name: Install Quartz plugins
+        run: npx quartz plugin install
         working-directory: ./source
 
       - name: Ensure Quartz builds, check bundle info
@@ -58,11 +66,20 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
+
+      - name: Cache Quartz plugins
+        uses: actions/cache@v4
+        with:
+          path: ./source/.quartz/plugins
+          key: ${{ runner.os }}-plugins-${{ hashFiles('**/quartz.lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-plugins-
 
       - name: Build Quartz
         run: |
-          npm install
+          npm ci
+          npx quartz plugin install
           npx quartz build
         working-directory: ./source
 
