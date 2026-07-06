@@ -4,3 +4,5 @@ node_modules/*
 source/public/*
 source/content/.obsidian/
 source/quartz/.quartz-cache/
+source/.quartz-cache/
+source/.quartz/*
